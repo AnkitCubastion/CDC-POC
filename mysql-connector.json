@@ -1,0 +1,22 @@
+{
+  "name": "mysql-sink-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.jdbc.JdbcSinkConnector",
+    "tasks.max": "1",
+    "topics": "mssqlserver.employee_db.dbo.employee_logs",
+    "connection.url": "jdbc:mysql://mysql:3306/student_db",
+    "connection.username": "root",
+    "connection.password": "Cubastion@123",
+    "insert.mode": "upsert",
+    "primary.key.mode": "record_value",
+    "primary.key.fields": "id",
+    "schema.evolution": "none",
+    "table.name.format": "student_logs",
+
+    "transforms": "unwrap,renameFields",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "transforms.unwrap.drop.tombstones": "true",
+    "transforms.renameFields.type": "org.apache.kafka.connect.transforms.ReplaceField$Value",
+    "transforms.renameFields.renames": "employee_name:student_name,in_time:innn_time,out_time:outtt_time"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "mssql-employee-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.sqlserver.SqlServerConnector",
+    "database.hostname": "sqlserver",
+    "database.port": "1433",
+    "database.user": "sa",
+    "database.password": "Cubastion@123",
+    "database.names": "employee_db",
+    "database.history.kafka.bootstrap.servers": "kafka:9092",
+    "database.history.kafka.topic": "schema-changes.employee",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",
+    "schema.history.internal.kafka.topic": "schema-changes.employee",
+    "table.include.list": "dbo.employee_logs",
+    "topic.prefix": "mssqlserver",
+    "database.encrypt": "false",
+    "database.trustServerCertificate": "false"
+  }
+}

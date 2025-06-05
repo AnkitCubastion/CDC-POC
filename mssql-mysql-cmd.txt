@@ -1,0 +1,103 @@
+---
+create database mssql
+
+CREATE DATABASE employee_db;
+GO
+
+---
+create database in mysql
+
+CREATE DATABASE student_db;
+
+---
+show databases in mssql
+
+SELECT name FROM sys.databases;
+GO
+
+---
+show databases in mysql
+
+SHOW DATABASES;
+
+---
+drop databases in mssql
+
+DROP DATABASE employee_db;
+
+---
+drop databases in mysql
+
+DROP DATABASE employee_db;
+
+---
+create table in mssql
+
+CREATE TABLE employee_logs (
+    id INT,
+    employee_code INT PRIMARY KEY,
+    employee_name VARCHAR(100),
+    in_time DATETIME,
+    out_time DATETIME
+);
+
+---
+create table in mysql
+
+CREATE TABLE student_logs (
+    id INT,
+    student_code INT PRIMARY KEY,
+    student_name VARCHAR(100),
+    innn_time DATETIME,
+    outtt_time DATETIME
+);
+
+---
+show tables in mssql
+
+SELECT TABLE_NAME 
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG = DB_NAME();
+GO
+
+---
+show tables in mysql
+
+SHOW TABLES;
+
+---
+
+show table schema in mssql
+
+SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'employee_logs' AND TABLE_SCHEMA = 'dbo';
+GO
+
+---
+show table schema in mysql
+
+DESCRIBE student_logs;
+
+---
+drop table in mssql
+
+DROP TABLE employee_logs;
+
+---
+drop table in mysql
+
+DROP TABLE student_logs;
+
+---
+show table data in mssql
+
+SELECT * FROM dbo.employee_logs;
+GO
+
+---
+show table data in mysql
+
+SELECT * FROM student_logs;
+
+---
